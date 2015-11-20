@@ -34,7 +34,7 @@ extends MemoryDictionary{
 	private DefaultDictionary() {
 	}
 	
-	private static final String DICTIONARY_RESOURCE = "com/data2act/tinyradius/dictionary/default_dictionary";
+	private static final String DICTIONARY_RESOURCE = "default_dictionary";
 	private static DefaultDictionary instance = null;
 	
 	/**
@@ -44,7 +44,7 @@ extends MemoryDictionary{
 	static {
 		try {
 			instance = new DefaultDictionary();
-    		InputStream source = DefaultDictionary.class.getClassLoader().getResourceAsStream(DICTIONARY_RESOURCE);
+    		InputStream source = instance.getClass().getClassLoader().getResourceAsStream(DICTIONARY_RESOURCE);
 			DictionaryParser.parseDictionary(source, instance);
 		} catch (IOException e) {
 			throw new RuntimeException("default dictionary unavailable", e);
