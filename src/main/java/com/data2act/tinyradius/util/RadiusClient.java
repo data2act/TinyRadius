@@ -311,7 +311,7 @@ public class RadiusClient {
 	 */
 	public RadiusPacket communicate(RadiusPacket request, int port) throws IOException, RadiusException {
 		DatagramPacket packetIn = new DatagramPacket(new byte[RadiusPacket.MAX_PACKET_LENGTH], RadiusPacket.MAX_PACKET_LENGTH);
-		DatagramPacket packetOut = makeDatagramPacket(request, port);
+		DatagramPacket packetOut = makeDatagramPacket(request, port, this.signRequests);
 
 		DatagramSocket socket = getSocket();
 		for (int i = 1; i <= getRetryCount(); i++) {
@@ -384,9 +384,9 @@ public class RadiusClient {
 	 * @return new datagram packet
 	 * @throws IOException
 	 */
-	protected DatagramPacket makeDatagramPacket(RadiusPacket packet, int port) throws IOException {
+	protected DatagramPacket makeDatagramPacket(RadiusPacket packet, int port, boolean sign) throws IOException {
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
-		packet.encodeRequestPacket(bos, getSharedSecret());
+		packet.encodeRequestPacket(bos, getSharedSecret(),sign);
 		byte[] data = bos.toByteArray();
 
 		InetAddress address = InetAddress.getByName(getHostName());
@@ -408,6 +408,15 @@ public class RadiusClient {
 		return RadiusPacket.decodeResponsePacket(in, getSharedSecret(), request);
 	}
 
+	public boolean isSignRequests() {
+		return signRequests;
+	}
+
+	public void setSignRequests(boolean signRequests) {
+		this.signRequests = signRequests;
+	}
+
+	private boolean signRequests;
 	private int authPort = 1812;
 	private int acctPort = 1813;
 	private String hostName = null;

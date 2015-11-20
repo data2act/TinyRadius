@@ -1097,6 +1097,11 @@ public class RadiusPacket {
 		return rp;
 	}
 
+	public void signPacket(String sharedSecret)
+	{
+		this.signPacket(this, sharedSecret);
+	}
+	
 	/**
 	 * Adds or updates the Message-Authenticator attribute of this packet. From
 	 * http://tools.ietf.org/html/rfc2869#section-5.14, Message-Authenticator =

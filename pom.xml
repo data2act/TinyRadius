@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.data2act.tinyradius</groupId>
 	<artifactId>tinyradius</artifactId>
-	<version>1.3</version>
+	<version>1.3.1</version>
 	<packaging>jar</packaging>
 	<name>Patched TinyRadius Java Radius Library</name>
 	<description>
