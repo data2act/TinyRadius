@@ -2,15 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.tinyradius</groupId>
+    <groupId>com.data2act.tinyradius</groupId>
     <artifactId>tinyradius</artifactId>
-    <version>1.0.2</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
-    <name>TinyRadius Java Radius Library</name>
+    <name>Patched TinyRadius Java Radius Library</name>
     <description>
         TinyRadius is a simple, small and fast Java Radius library capable of sending and receiving Radius packets of all types. It is released under the terms of the LGPL.
     </description>
-    <url>https://github.com/ctran/TinyRadius</url>
+    <url>https://github.com/data2act/TinyRadius</url>
     <developers>
         <developer>
             <id>wuttke</id>
@@ -21,6 +21,10 @@
         <developer>
             <id>ctran</id>
             <email>cuong.tran@gmail.com</email>
+        </developer>
+        <developer>
+            <id>raudenaerde</id>
+            <email>rob.audenaerde@data2act.com</email>
         </developer>
     </developers>
     <licenses>

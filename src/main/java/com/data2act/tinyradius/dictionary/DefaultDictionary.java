@@ -34,7 +34,7 @@ extends MemoryDictionary{
 	private DefaultDictionary() {
 	}
 	
-	private static final String DICTIONARY_RESOURCE = "org/tinyradius/dictionary/default_dictionary";
+	private static final String DICTIONARY_RESOURCE = "com/data2act/tinyradius/dictionary/default_dictionary";
 	private static DefaultDictionary instance = null;
 	
 	/**
